@@ -1,0 +1,62 @@
+<style>
+    .main {
+        width: 500px;
+        margin: auto;
+    }
+    .body{
+        width: 300px;
+        height: 200px;
+        padding: 7px;
+        border: 1px solid orange;
+    }
+    .display{
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        border: 1px solid grey;
+        box-sizing: border-box;
+    }
+    .row {
+        display: grid;
+        margin-top: 5px;
+        grid-template-columns: repeat(4, 1fr); /* 3 equal columns */
+        gap: 5px;
+    }
+    .btn-size {
+        height: 40px;
+    }
+</style>
+<div class="main">
+    <h2>Laskin sivu</h2>
+    <div class="body">
+        <div class="display">
+            {{display_str}}
+        </div>
+
+        <div class="row">
+            <button class="btn-size" (click)="btnSelected(1)">1</button>
+            <button (click)="btnSelected(2)">2</button>
+            <button (click)="btnSelected(3)">3</button>
+            <button (click)="btnAction('/')">/</button>
+        </div>
+        <div class="row">
+            <button (click)="btnSelected(4)" class="btn-size">4</button>
+            <button (click)="btnSelected(5)">5</button>
+            <button (click)="btnSelected(6)">6</button>
+            <button (click)="btnAction('*')">x</button>
+        </div>
+        <div class="row">
+            <button (click)="btnSelected(7)" class="btn-size">7</button>
+            <button (click)="btnSelected(8)">8</button>
+            <button (click)="btnSelected(9)">9</button>
+            <button (click)="btnAction('+')">+</button>
+        </div>
+        <div class="row">
+            <button (click)="clearDisplay()" class="btn-size">C</button>
+            <button (click)="btnSelected(0)">0</button>
+            <button (click)="calculate()" >=</button>
+            <button (click)="btnAction('-')">-</button>
+        </div>
+    </div>
+</div>
+
