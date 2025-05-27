@@ -19,7 +19,7 @@ export class CalculatorComponent {
   result: number  = 0;
   isResult: boolean = false;
 
-  // Select to add number to num_1 or to num_2
+  // Select to add number to num_1 and to num_2
   btnSelected = (showNumber: any) => {
     
     if (this.isResult) return;
@@ -40,18 +40,14 @@ export class CalculatorComponent {
     const allSymbols: string = '/*+-';
     let isAlreadySymbol: boolean = [...this.display_str].some(item => allSymbols.includes(item));
     
-    console.log("isSymbolIn " + isAlreadySymbol);
     if (isAlreadySymbol) {
-      console.log("Str includes " + symbol)
       return
     } else {
-      console.log("Pressed s: " + symbol);
       this.selectedCalculation = symbol;
       this.display_str = this.display_str +" " + symbol + " ";
     }
     
   }
-
 
   calculate = () => {
     if (this.isResult) return;
@@ -71,8 +67,7 @@ export class CalculatorComponent {
         case '+':
           this.result = this.num_1 + this.num_2;
           this.display_str += (' = ' + this.result);
-          console.log("N1 ja n2 " + this.num_1 + " " + this.num_2)
-          console.log("Result - " + this.result);
+          
           this.isResult = true;
           break;
         case '-':
